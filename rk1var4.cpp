@@ -71,17 +71,15 @@ int main() {
         arr2[x] = a;
         x++;
     }
-    bool e = true;
-    while (e) {
-        e = false;
+     
+     for (int a = 0; a < 25; a++) {
         for (int i = 0; i < 25; i++) {
             if (arr1[i] > arr1[i + 1]) {
                 swap1(arr1[i], arr1[i + 1]);
-                swap2(arr2[i], arr2[i + 1]);
-                e = true;
+                swap2(arr2[i], arr2[i + 1]);     
             }
         }
-    }
+   }
     std::cout << "\n\nFrequency of every letter in this text:\n";
     for (int i = 25; i >= 0; i--)
         std::cout << std::endl << arr2[i] << " = " << arr1[i] << " %";
