@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 
-
 void swap1(float& a, float& b) {
     float k = a;
     a = b;
@@ -11,10 +10,8 @@ void swap1(float& a, float& b) {
 void swap2(char& a, char& b) {
     char k = a;
     a = b;
-    b = k;
-    
+    b = k; 
 }
-
 int main() {
     std::string  str = "VRQWFBVRPP CQ NIB RN FRQE QUIMB - CB BRWFQ FNSOMRNDF, BFRA\n"
         "QUCMCB RNS XMFRB QWCPPQ BI IOBQDIMF IUUINFNBQ RNS TCN BHF XRAF.\n"
@@ -54,6 +51,7 @@ int main() {
     float arr1[26];
     char arr2[26];
     int count = 0;
+    int x = 0;
     for (int i = 0; i < str.size(); i++) {
         if (static_cast<char>(str[i]) == '.' || static_cast<char>(str[i]) == ',' || static_cast<char>(str[i]) == ' ' || static_cast<char>(str[i]) == '"' || static_cast<char>(str[i]) == '-' ||
             static_cast<char>(str[i]) == '0' || static_cast<char>(str[i]) == '1' || static_cast<char>(str[i]) == '2' || static_cast<char>(str[i]) == '3' || static_cast<char>(str[i]) == '4' ||
@@ -62,14 +60,16 @@ int main() {
             count++;
         }
     }
-    for (int a = 65; a <= 90; a++) {
+    for ( char a = 'A'; a <= 'Z'; a++) {
         float c = 0.;
         for (int i = 0; i < str.size(); i++) {
-            if (static_cast<char>(a) == str[i])
+            if (a == str[i])
                 c++;
         }
-        arr1[a - 65] = (c / (str.size() - count)) * 100;
-        arr2[a - 65] = static_cast<char>(a);
+        
+        arr1[x] = (c / (str.size() - count)) * 100;
+        arr2[x] = a;
+        x++;
     }
     bool e = true;
     while (e) {
@@ -80,7 +80,6 @@ int main() {
                 swap2(arr2[i], arr2[i + 1]);
                 e = true;
             }
-
         }
     }
     std::cout << "\n\nFrequency of every letter in this text:\n";
